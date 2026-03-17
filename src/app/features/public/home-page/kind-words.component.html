@@ -1,0 +1,25 @@
+<section class="kind-words">
+  <figure class="kind-words-media" aria-hidden="true">
+    <img [src]="backgroundImage | assetUrl" alt="Kind words tattoo testimonial background" />
+  </figure>
+
+  <div class="kind-words-head">
+    <h2>KIND WORDS</h2>
+  </div>
+
+  <div class="kind-words-body">
+    <button class="kind-nav prev" type="button" (click)="previous.emit()" aria-label="Previous testimonial">
+      &#8249;
+    </button>
+
+    <article class="kind-card">
+      <p class="kind-author">{{ word.author }}, {{ word.location }}</p>
+      <p class="kind-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="quote">"{{ word.quote }}"</p>
+    </article>
+
+    <button class="kind-nav next" type="button" (click)="next.emit()" aria-label="Next testimonial">
+      &#8250;
+    </button>
+  </div>
+</section>

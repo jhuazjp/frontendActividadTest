@@ -1,0 +1,70 @@
+<section class="section stack-lg fade-up artist-page">
+  <div class="artist-hero">
+    <div class="artist-hero-inner">
+      <h1 class="artist-title">FOR TATTOO ARTIST</h1>
+      <p class="artist-sub">
+        Hello, artist! This blog is specially created for the new generation of tattoo artists, those who are
+        asking:
+      </p>
+
+      <ul class="artist-questions">
+        <li>What do I need to become a tattoo artist?</li>
+        <li>Where can I find a mentor or a tattoo school?</li>
+        <li>How can I make a living from tattooing?</li>
+      </ul>
+
+      <p class="artist-desc">
+        With over a decade of experience learning and working in the art of tattooing, these articles are the
+        response to the questions and doubts that emerge at the beginning and as I progress in my journey as a tattoo
+        artist.
+      </p>
+
+      <p class="artist-desc">
+        From fundamental techniques to how to travel the world while tattooing, I'm here to show you how I've done
+        it-and how I'm still doing it. I'll share tips, recommendations, and experiences that have helped me grow in
+        my career.
+      </p>
+
+      <p class="artist-desc">
+        This blog provides the inspiration and support you need to <em>create your own guide,</em> whether you're a
+        beginner or refining your skills as a tattoo artist.
+      </p>
+
+      <p class="artist-cta">Let's create art together!</p>
+    </div>
+  </div>
+
+  <div class="artist-guides-grid">
+    <a
+      *ngFor="let guide of artistGuides"
+      class="artist-guide-card"
+      [href]="guide.url"
+      target="_blank"
+      rel="noopener noreferrer"
+      [style.background-image]="'linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.8) 100%), url(' + (guide.image | assetUrl) + ')'"
+    >
+      <div class="guide-meta">{{ guide.date }} - {{ guide.readTime }}</div>
+      <h2 class="guide-title">{{ guide.title }}</h2>
+      <div class="guide-divider"></div>
+      <div class="guide-views">
+        <svg class="view-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M1.5 12s3.8-6.5 10.5-6.5S22.5 12 22.5 12s-3.8 6.5-10.5 6.5S1.5 12 1.5 12Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <circle cx="12" cy="12" r="3.3" fill="none" stroke="currentColor" stroke-width="1.8" />
+        </svg>
+        <span>{{ guide.views }}</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="artist-actions">
+    <a class="discover-btn" href="/connect">CONTACT</a>
+    <a class="discover-btn ghost" href="/designs">AVAILABLE DESIGNS</a>
+  </div>
+</section>

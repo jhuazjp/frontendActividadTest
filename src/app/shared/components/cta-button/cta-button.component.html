@@ -1,0 +1,9 @@
+@if (external) {
+  <a class="cta" [class.secondary]="variant === 'secondary'" [href]="href" target="_blank" rel="noopener">
+    {{ label }}
+  </a>
+} @else {
+  <a class="cta" [class.secondary]="variant === 'secondary'" [routerLink]="href">
+    {{ label }}
+  </a>
+}

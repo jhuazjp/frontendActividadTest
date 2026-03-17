@@ -1,0 +1,121 @@
+﻿<section class="section stack-lg fade-up contact-page">
+  <div class="page-title">
+    <h1>Contact | Bookings and consultations</h1>
+  </div>
+
+  <div class="contact-carousel">
+    <div class="gallery-horizontal">
+      <button class="carousel-btn prev" (click)="scrollPrevious()" type="button" aria-label="Previous">&#8592;</button>
+
+      <div #galleryTrack class="gallery-track" role="list">
+        <a
+          *ngFor="let method of contactMethods; let i = index"
+          class="gallery-item"
+          [href]="method.href"
+          [target]="method.target"
+          [rel]="method.rel"
+          role="listitem"
+        >
+          <div class="item-image" [style.backgroundImage]="'url(' + (method.image | assetUrl) + ')'"></div>
+          <div class="item-overlay">
+            <div class="item-info">
+              <h3>{{ method.title }}</h3>
+              <p>{{ method.info }}</p>
+              <span class="cta-small">{{ method.ctaLabel }}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <button class="carousel-btn next" (click)="scrollNext()" type="button" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+
+  <div class="carousel-caption">
+    <p>
+      Apz specializes in unique tattoos reflecting your personality. Share your story, cultural influences, or dream
+      designs. Not sure? Send a screenshot of his past work, and let's create something amazing together!
+    </p>
+  </div>
+
+  <div class="landing-panels">
+    <article class="landing-panel">
+      <h2>Bookings and Consultations</h2>
+      <p>
+        Email: info@apztattoo.com
+        <br />
+        WhatsApp: +1 929 720 2028
+        <br />
+        Instagram: @apztattoo
+      </p>
+    </article>
+
+    <article class="landing-panel">
+      <h2>Active Studios</h2>
+      <p>
+        New York City - Noble Art Tattoo
+        <br />
+        Copenhagen - Dropout Collective
+        <br />
+        Dubai - Dubai Hills Tattoo
+      </p>
+    </article>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="contact-form">
+    <h2>Project Inquiry Form</h2>
+
+    <div class="fields">
+      <label>
+        First name
+        <input formControlName="firstName" type="text" />
+      </label>
+      <label>
+        Last name
+        <input formControlName="lastName" type="text" />
+      </label>
+      <label>
+        Email
+        <input formControlName="email" type="email" />
+      </label>
+      <label>
+        Phone
+        <input formControlName="phone" type="text" />
+      </label>
+      <label>
+        City
+        <input formControlName="city" type="text" />
+      </label>
+      <label>
+        Instagram
+        <input formControlName="instagramHandle" type="text" placeholder="@username" />
+      </label>
+    </div>
+
+    <label class="check">
+      <input formControlName="termsAccepted" type="checkbox" /> I accept terms and privacy policy.
+    </label>
+
+    <label class="check">
+      <input formControlName="contactConsent" type="checkbox" /> I authorize contact regarding my inquiry.
+    </label>
+
+    <p *ngIf="message" class="message">{{ message }}</p>
+
+    <button class="submit-btn" type="submit" [disabled]="form.invalid || loading">
+      {{ loading ? 'Sending...' : 'Send inquiry' }}
+    </button>
+  </form>
+
+  <section class="exclusive-prices">
+    <div class="exclusive-inner">
+      <img src="assets/apztattoo/contact/Diamante.png" alt="Exclusive prices" class="exclusive-logo" />
+      <h2>EXCLUSIVE PRICES</h2>
+      <p>
+        Choose from APZ exclusive available designs and enjoy a better price. Contact us for further assistance. We're
+        available in-store, via video call, or through live chat.
+      </p>
+      <a class="discover-btn" href="https://www.apztattoo.com/designs" target="_self">DISCOVER MORE</a>
+    </div>
+  </section>
+</section>

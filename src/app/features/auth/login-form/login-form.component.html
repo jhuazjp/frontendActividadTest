@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+  <label>
+    Email o telefono
+    <input formControlName="emailOrPhone" type="text" placeholder="you@email.com" />
+  </label>
+
+  <label>
+    Password
+    <input formControlName="password" type="password" placeholder="********" />
+  </label>
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <button type="submit" [disabled]="form.invalid || loading">
+    {{ loading ? 'Ingresando...' : 'Ingresar' }}
+  </button>
+</form>

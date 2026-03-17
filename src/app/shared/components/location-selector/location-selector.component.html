@@ -1,0 +1,11 @@
+<div class="selector">
+  @for (location of locations; track location) {
+    <button
+      type="button"
+      [class.active]="selected === location"
+      (click)="change.emit(location)"
+    >
+      {{ location }}
+    </button>
+  }
+</div>

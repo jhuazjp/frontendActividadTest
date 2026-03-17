@@ -1,0 +1,66 @@
+[
+  {
+    "id": "c1",
+    "title": "Portrait Sleeve",
+    "style": "Realism",
+    "location": "New York",
+    "priceRange": "$700 - $1,400",
+    "image": "assets/apztattoo/catalog/catalog_gallery_01.jpg"
+  },
+  {
+    "id": "c2",
+    "title": "Japanese Backpiece",
+    "style": "Japanese",
+    "location": "Copenhagen",
+    "priceRange": "$900 - $1,900",
+    "image": "assets/apztattoo/catalog/catalog_gallery_02.jpg"
+  },
+  {
+    "id": "c3",
+    "title": "Fine Line Floral",
+    "style": "Fine Line",
+    "location": "Dubai",
+    "priceRange": "$260 - $540",
+    "image": "assets/apztattoo/catalog/catalog_gallery_03.jpg"
+  },
+  {
+    "id": "c4",
+    "title": "Lettering Project",
+    "style": "Lettering",
+    "location": "New York",
+    "priceRange": "From $180",
+    "image": "assets/apztattoo/catalog/catalog_gallery_04.jpg"
+  },
+  {
+    "id": "c5",
+    "title": "Concept Pack Alpha",
+    "style": "Custom",
+    "location": "Copenhagen",
+    "priceRange": "$350 - $780",
+    "image": "assets/apztattoo/catalog/catalog_gallery_06.png"
+  },
+  {
+    "id": "c6",
+    "title": "Concept Pack Beta",
+    "style": "Custom",
+    "location": "Dubai",
+    "priceRange": "$320 - $690",
+    "image": "assets/apztattoo/catalog/catalog_gallery_07.png"
+  },
+  {
+    "id": "c7",
+    "title": "Portfolio Piece 07",
+    "style": "Black and Grey",
+    "location": "New York",
+    "priceRange": "$400 - $920",
+    "image": "assets/apztattoo/catalog/catalog_gallery_08.png"
+  },
+  {
+    "id": "c8",
+    "title": "Portfolio Piece 08",
+    "style": "Geometric",
+    "location": "Copenhagen",
+    "priceRange": "$250 - $520",
+    "image": "assets/apztattoo/catalog/catalog_gallery_09.jpg"
+  }
+]

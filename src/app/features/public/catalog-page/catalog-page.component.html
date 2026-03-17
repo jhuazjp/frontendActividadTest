@@ -1,0 +1,112 @@
+<section class="catalog-page fade-up">
+  <section class="catalog-hero">
+    <div class="section catalog-hero-inner">
+      <p class="hero-eyebrow">CATALOG</p>
+      <h1>Find your style and check placement rates before booking.</h1>
+      <p class="hero-subtitle">
+        Designed for collectors who want clarity first: session ranges, area references, and a direct path to inquire.
+      </p>
+
+      <div class="hero-actions">
+        <a class="hero-btn" href="/connect">CONTACT</a>
+        <a class="hero-btn ghost" href="/designs">AVAILABLE DESIGNS</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog-content">
+    <div class="section stack-lg">
+      <div class="contact-carousel">
+        <div class="gallery-horizontal">
+          <button class="carousel-btn prev" (click)="scrollPrevious()" type="button" aria-label="Previous">
+            &#8592;
+          </button>
+
+          <div #galleryTrack class="gallery-track" role="list">
+            @for (slide of contactSlides; track slide.title) {
+              <a
+                class="gallery-item"
+                [class.platform-whatsapp]="slide.platform === 'whatsapp'"
+                [class.platform-instagram]="slide.platform === 'instagram'"
+                [class.platform-messenger]="slide.platform === 'messenger'"
+                [href]="slide.href"
+                [target]="slide.target"
+                [rel]="slide.rel"
+                role="listitem"
+              >
+                <div class="item-image" [style.backgroundImage]="'url(' + (slide.image | assetUrl) + ')'"></div>
+                <div class="item-overlay">
+                  <div class="item-info">
+                    <h3>{{ slide.title }}</h3>
+                    <p>{{ slide.info }}</p>
+                    <span class="cta-small">{{ slide.ctaLabel }}</span>
+                  </div>
+                </div>
+              </a>
+            }
+          </div>
+
+          <button class="carousel-btn next" (click)="scrollNext()" type="button" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="carousel-caption">
+        <p>
+          The catalog page shows real placement ranges as a guide. Final value always depends on anatomy, level of
+          detail, and total sessions required for your project.
+        </p>
+      </div>
+
+      <div class="content-head">
+        <h2>Catalog</h2>
+        <p>General placement references and entry ranges based on the published APZ catalog structure.</p>
+      </div>
+
+      <div class="location-filter">
+        <p>Set Location</p>
+        <div class="filter-actions">
+          <button type="button" [class.active]="selectedLocation === 'ALL'" (click)="setLocation('ALL')">ALL</button>
+          <button type="button" [class.active]="selectedLocation === 'NEW YORK'" (click)="setLocation('NEW YORK')">
+            NEW YORK
+          </button>
+          <button
+            type="button"
+            [class.active]="selectedLocation === 'COPENHAGEN'"
+            (click)="setLocation('COPENHAGEN')"
+          >
+            COPENHAGEN
+          </button>
+          <button type="button" [class.active]="selectedLocation === 'DUBAI'" (click)="setLocation('DUBAI')">
+            DUBAI
+          </button>
+        </div>
+      </div>
+
+      <div class="catalog-grid">
+        @for (card of filteredCatalogCards; track card.title) {
+          <a class="catalog-card" [href]="card.href">
+            <div class="card-image" [style.backgroundImage]="'url(' + (card.image | assetUrl) + ')'"></div>
+            <div class="card-body">
+              <p class="card-price">{{ card.priceRange }}</p>
+              <h3>{{ card.title }}</h3>
+              <p>{{ card.copy }}</p>
+              <p class="card-location">Set Location: {{ card.location }} | {{ card.studio }}</p>
+              <span>Inquire now</span>
+            </div>
+          </a>
+        }
+      </div>
+
+    
+      <div class="moving-carousel" (mouseenter)="pauseAutoCarousel()" (mouseleave)="resumeAutoCarousel()">
+        <div #autoTrack class="moving-track">
+          @for (image of movingCarouselLoopImages; track $index) {
+            <article class="moving-item">
+              <img [src]="image | assetUrl" alt="APZ catalog preview image" loading="lazy" />
+            </article>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

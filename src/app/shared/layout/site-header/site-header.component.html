@@ -1,0 +1,36 @@
+<header
+  class="site-header"
+  [class.scrolled]="isScrolled"
+  [class.custom-theme]="currentStyle?.theme === 'custom'"
+  [style.--header-bg]="headerBackground"
+  [style.--header-bg-scrolled]="headerBackgroundScrolled"
+  [style.--header-text]="headerTextColor"
+  [style.--header-muted]="headerMutedColor"
+  [style.--header-border]="headerBorderColor"
+  [style.--header-accent]="headerAccentColor"
+>
+  <div class="inner">
+    <a class="brand" routerLink="/">
+      <img src="assets/apztattoo/home/home_logo_02.png" alt="APZ Tattoo" />
+    </a>
+
+    <nav>
+      <a routerLink="/about" routerLinkActive="active">ABOUT</a>
+      <a routerLink="/catalog" routerLinkActive="active">CATALOG</a>
+      <a routerLink="/artists" routerLinkActive="active">FOR ARTISTS</a>
+      <a routerLink="/designs" routerLinkActive="active">DESIGNS</a>
+      <a routerLink="/contact" routerLinkActive="active">CONTACT</a>
+    </nav>
+
+    <div class="actions">
+      @if (auth.user(); as user) {
+        <a class="panel" [routerLink]="dashboardUrl(user.roles)">
+          {{ user.roles[0] }} panel
+        </a>
+        <button type="button" class="logout" (click)="logout()">Logout</button>
+      } @else {
+        <a class="panel" routerLink="/login">Login</a>
+      }
+    </div>
+  </div>
+</header>

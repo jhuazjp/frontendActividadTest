@@ -1,0 +1,12 @@
+<section class="login-page section">
+  <div class="card">
+    <h1>Studio Login</h1>
+    <p>Acceso para admin, CRM, artists y clientes con catalogo privado.</p>
+
+    <app-login-form
+      [loading]="loading"
+      [errorMessage]="errorMessage"
+      (submitForm)="onSubmit($event)"
+    />
+  </div>
+</section>

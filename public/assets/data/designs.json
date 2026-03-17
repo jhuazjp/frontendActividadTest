@@ -1,0 +1,66 @@
+[
+  {
+    "id": "d1",
+    "title": "Fine Line Rose",
+    "style": "Fine Line",
+    "location": "Copenhagen",
+    "priceRange": "From $220",
+    "image": "assets/apztattoo/designs/designs_gallery_01.jpg"
+  },
+  {
+    "id": "d2",
+    "title": "Dotwork Shield",
+    "style": "Dotwork",
+    "location": "New York",
+    "priceRange": "$260 - $420",
+    "image": "assets/apztattoo/designs/designs_gallery_02.png"
+  },
+  {
+    "id": "d3",
+    "title": "Neo Tribal Skull",
+    "style": "Neo Traditional",
+    "location": "Dubai",
+    "priceRange": "$300 - $500",
+    "image": "assets/apztattoo/designs/designs_gallery_03.png"
+  },
+  {
+    "id": "d4",
+    "title": "Minimal Dragon",
+    "style": "Minimal",
+    "location": "Copenhagen",
+    "priceRange": "From $210",
+    "image": "assets/apztattoo/designs/designs_gallery_04.png"
+  },
+  {
+    "id": "d5",
+    "title": "Blackwork Ornament",
+    "style": "Blackwork",
+    "location": "New York",
+    "priceRange": "$280 - $460",
+    "image": "assets/apztattoo/designs/designs_gallery_05.jpg"
+  },
+  {
+    "id": "d6",
+    "title": "Micro Realism Face",
+    "style": "Micro Realism",
+    "location": "Dubai",
+    "priceRange": "$350 - $600",
+    "image": "assets/apztattoo/designs/designs_gallery_06.jpg"
+  },
+  {
+    "id": "d7",
+    "title": "Snake Pattern",
+    "style": "Illustrative",
+    "location": "Copenhagen",
+    "priceRange": "From $240",
+    "image": "assets/apztattoo/designs/designs_gallery_07.png"
+  },
+  {
+    "id": "d8",
+    "title": "Mandala Bloom",
+    "style": "Mandala",
+    "location": "New York",
+    "priceRange": "$260 - $420",
+    "image": "assets/apztattoo/designs/designs_gallery_08.png"
+  }
+]

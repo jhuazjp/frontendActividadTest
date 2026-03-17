@@ -1,0 +1,86 @@
+<section class="designs-page fade-up">
+  <ng-template #locationFilter>
+    <div class="location-filter">
+      <p>SELECT LOCATION</p>
+      <div class="filter-actions">
+        @for (location of locations; track location; let i = $index) {
+          <button type="button" [class.active]="selectedLocation === location" (click)="setLocation(location)">
+            {{ location }}
+          </button>
+          @if (i < locations.length - 1) {
+            <span class="separator">|</span>
+          }
+        }
+      </div>
+    </div>
+  </ng-template>
+
+  <section class="designs-hero">
+    <div class="section designs-hero-inner">
+      <p class="hero-eyebrow">DESIGN COLLECTION</p>
+      <h1>AVAILABLE AS TATTOOS</h1>
+    </div>
+  </section>
+
+  <section class="designs-content">
+    <div class="section stack-lg">
+      <div class="intro-box">
+        <h2>The following designs are ideas and inspiration for your next tattoo</h2>
+        <p>
+          Explore APZ's Design Collection, available as tattoos that blend classic realism aesthetics with a modern
+          black and white style. Apz is based in Manhattan, NYC.
+        </p>
+      </div>
+
+      <ng-container [ngTemplateOutlet]="locationFilter"></ng-container>
+
+      <div class="design-grid">
+        @for (design of filteredDesignCards; track design.title) {
+          <article class="design-card">
+            <div class="card-image" [style.backgroundImage]="'url(' + (design.image | assetUrl) + ')'"></div>
+            <div class="card-body">
+              <h3>{{ design.title }}</h3>
+              <p class="current-price">{{ design.currentPrice }}</p>
+              <p class="previous-price">Previous price {{ design.previousPrice }}</p>
+            </div>
+          </article>
+        }
+      </div>
+
+      <section class="design-result-block" aria-label="Results">
+        <div class="design-result-head">
+          <h2>Results</h2>
+          <p>Comparativa en video de los disenos 1, 2 y 3.</p>
+        </div>
+
+        <div class="design-result-grid">
+          @for (item of designResultVideos; track item.title) {
+            <article class="design-result-card surface-card">
+              <video [poster]="item.poster | assetUrl" controls preload="metadata" playsinline>
+                <source [src]="item.video | assetUrl" type="video/mp4" />
+                Tu navegador no soporta video HTML5.
+              </video>
+              <div class="design-result-copy">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.subtitle }}</p>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+
+      <div class="location-filter-bottom">
+        <ng-container [ngTemplateOutlet]="locationFilter"></ng-container>
+      </div>
+
+      <article class="ai-block ai-feature">
+        <div class="ai-copy ai-feature-copy">
+          <h2>AI Tattoo Designer</h2>
+          <p>Design unique tattoos anytime with Apz' AI tool, free of charge.</p>
+          <a class="ai-btn ai-feature-btn" href="/connect">Create now -&gt;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</section>
+

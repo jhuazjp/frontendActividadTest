@@ -1,0 +1,10 @@
+<article class="card">
+  <img [src]="image | assetUrl" [alt]="title" loading="lazy" decoding="async" />
+  <div class="overlay">
+    <h3>{{ title }}</h3>
+    @if (style || location || priceRange) {
+      <p>{{ style }} <span *ngIf="style && location">-</span> {{ location }}</p>
+      <small>{{ priceRange }}</small>
+    }
+  </div>
+</article>

@@ -1,0 +1,164 @@
+.admin-lite {
+  color: #fdfdfd;
+}
+
+.admin-head {
+  display: grid;
+  gap: 1rem;
+}
+
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.admin-head h1 {
+  margin: 0;
+  color: #fdfdfd;
+}
+
+.admin-head p {
+  margin: 0.35rem 0 0;
+  color: #fdfdfd;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.admin-stats article {
+  padding: 1rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.admin-stats strong {
+  font-size: 1.8rem;
+  color: var(--text-strong);
+}
+
+.admin-stats span {
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.panel-form,
+.panel-table {
+  padding: 1rem;
+}
+
+.panel-form h2,
+.panel-table h2 {
+  margin: 0 0 0.9rem;
+  color: var(--text-strong);
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea,
+.form-grid button,
+.table-actions button {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0.72rem 0.8rem;
+  font: inherit;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  background: #fff;
+  color: #181818;
+}
+
+
+
+.form-grid button,
+.table-actions button {
+  border: 0;
+  background: #181818;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.admin-message {
+  margin: 0;
+  color: #1c4f96;
+  font-weight: 600;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem 0.35rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: left;
+  color: #161616;
+}
+
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.simple-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.simple-list li {
+  display: grid;
+  gap: 0.15rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.simple-list strong {
+  color: var(--text-strong);
+}
+
+.simple-list span,
+.simple-list small {
+  color: var(--text-soft);
+}
+
+@media (max-width: 900px) {
+  .admin-stats,
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}

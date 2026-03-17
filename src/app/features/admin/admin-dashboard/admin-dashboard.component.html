@@ -1,0 +1,130 @@
+<section class="section stack-lg fade-up admin-lite">
+  <header class="admin-head">
+    <div>
+      <p class="eyebrow">APZ TATTO</p>
+      <h1>Admin Dashboard</h1>
+      <p>Crear usuarios, revisar leads y programar citas.</p>
+    </div>
+
+    <div class="admin-stats">
+      <article class="surface-panel">
+        <strong>{{ users.length }}</strong>
+        <span>Users</span>
+      </article>
+      <article class="surface-panel">
+        <strong>{{ leads.length }}</strong>
+        <span>Leads</span>
+      </article>
+      <article class="surface-panel">
+        <strong>{{ appointments.length }}</strong>
+        <span>Appointments</span>
+      </article>
+    </div>
+  </header>
+
+  <div class="admin-grid">
+    <article class="surface-panel panel-form">
+      <h2>Create user</h2>
+      <form [formGroup]="userForm" (ngSubmit)="createUser()" class="form-grid">
+        <input formControlName="firstName" placeholder="First name" />
+        <input formControlName="lastName" placeholder="Last name" />
+        <input formControlName="email" placeholder="Email" />
+        <input formControlName="phone" placeholder="Phone" />
+        <input formControlName="password" type="password" placeholder="Password" />
+        <select formControlName="role">
+          <option value="CLIENT">CLIENT</option>
+          <option value="ARTIST">ARTIST</option>
+          <option value="ADMIN">ADMIN</option>
+        </select>
+        <button type="submit" [disabled]="userForm.invalid">Create user</button>
+      </form>
+    </article>
+
+    <article class="surface-panel panel-form">
+      <h2>Create appointment</h2>
+      <form [formGroup]="appointmentForm" (ngSubmit)="createAppointment()" class="form-grid">
+        <select formControlName="leadId">
+          <option value="">Without lead</option>
+          @for (lead of leads; track lead._id) {
+            <option [value]="lead._id">{{ lead.firstName }} {{ lead.lastName }} - {{ lead.status }}</option>
+          }
+        </select>
+        <input formControlName="clientName" placeholder="Client name" />
+        <input formControlName="artistName" placeholder="Artist name" />
+        <input formControlName="scheduledFor" type="datetime-local" />
+        <textarea formControlName="notes" rows="4" placeholder="Notes"></textarea>
+        <button type="submit" [disabled]="appointmentForm.invalid">Create appointment</button>
+      </form>
+    </article>
+  </div>
+
+  @if (message) {
+    <p class="admin-message">{{ message }}</p>
+  }
+
+  <div class="admin-grid">
+    <article class="surface-panel panel-table">
+      <div class="panel-head">
+        <h2>Recent leads</h2>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Contact</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (lead of leads; track lead._id) {
+              <tr>
+                <td>{{ lead.firstName }} {{ lead.lastName }}</td>
+                <td>{{ lead.email || lead.phone || 'N/A' }}</td>
+                <td>{{ lead.status }}</td>
+                <td class="table-actions">
+                  <button type="button" (click)="markLeadAs('CONTACTED', lead)">Contacted</button>
+                  <button type="button" (click)="markLeadAs('BOOKED', lead)">Booked</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <article class="surface-panel panel-table">
+      <div class="panel-head">
+        <h2>Users</h2>
+      </div>
+
+      <ul class="simple-list">
+        @for (user of users; track user.id) {
+          <li>
+            <strong>{{ user.firstName }} {{ user.lastName }}</strong>
+            <span>{{ user.roles.join(', ') }}</span>
+            <small>{{ user.email }}</small>
+          </li>
+        }
+      </ul>
+    </article>
+  </div>
+
+  <article class="surface-panel panel-table">
+    <div class="panel-head">
+      <h2>Appointments</h2>
+    </div>
+
+    <ul class="simple-list">
+      @for (appointment of appointments; track appointment._id) {
+        <li>
+          <strong>{{ appointment.clientName || 'Pending client' }}</strong>
+          <span>{{ appointment.artistName || 'No artist' }}</span>
+          <small>{{ appointment.scheduledFor | date: 'medium' }} - {{ appointment.status }}</small>
+        </li>
+      }
+    </ul>
+  </article>
+</section>

@@ -1,0 +1,19 @@
+<section class="aftercare-cta">
+  <p class="aftercare-side">{{ sideText }}</p>
+
+  <div class="aftercare-main">
+    <div class="aftercare-media">
+      <img
+        class="aftercare-media-bg"
+        [src]="backgroundImage | assetUrl"
+        alt="Aftercare recommendations APZ"
+      />
+    </div>
+
+    <div class="aftercare-copy">
+      <h2>{{ heading }}</h2>
+      <p class="aftercare-tag">{{ tag }}</p>
+      <a class="aftercare-btn" [routerLink]="ctaRoute">{{ buttonText }}</a>
+    </div>
+  </div>
+</section>

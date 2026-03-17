@@ -1,0 +1,11 @@
+<section class="grid" [style.--columns]="columns">
+  @for (item of items; track item.id) {
+    <app-gallery-card
+      [title]="item.title"
+      [image]="item.image"
+      [style]="item.style || ''"
+      [location]="item.location || ''"
+      [priceRange]="item.priceRange || ''"
+    />
+  }
+</section>

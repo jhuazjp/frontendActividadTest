@@ -1,0 +1,122 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.kind-words {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 100%;
+  min-height: clamp(320px, 40vw, 430px);
+  border: 1px solid rgba(18, 18, 18, 0.16);
+  overflow: hidden;
+  padding: clamp(1.1rem, 2.4vw, 1.8rem);
+  color: #f7f7f7;
+}
+
+.kind-words-media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  z-index: -2;
+}
+
+.kind-words-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.kind-words::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(10, 10, 10, 0.74) 0%, rgba(10, 10, 10, 0.42) 44%, rgba(10, 10, 10, 0.2) 100%);
+}
+
+.kind-words-head {
+  position: relative;
+  z-index: 1;
+  margin-bottom: clamp(0.7rem, 2vw, 1.2rem);
+}
+
+.kind-words-head h2 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.8vw, 1.9rem);
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.kind-words-body {
+  position: relative;
+  z-index: 1;
+  min-height: clamp(190px, 22vw, 250px);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(0.6rem, 2vw, 1rem);
+}
+
+.kind-nav {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.kind-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(1rem, 2.4vw, 1.3rem);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  background: rgba(12, 12, 12, 0.32);
+  backdrop-filter: blur(2px);
+}
+
+.kind-author {
+  margin: 0;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: rgba(242, 242, 242, 0.95);
+}
+
+.kind-stars {
+  margin: 0.25rem 0 0.55rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 216, 120, 0.98);
+}
+
+.quote {
+  margin: 0;
+  line-height: 1.5;
+  font-size: clamp(0.98rem, 1.6vw, 1.08rem);
+  color: #f8f8f8;
+}
+
+@media (max-width: 760px) {
+  .kind-words {
+    min-height: 340px;
+  }
+
+  .kind-words-body {
+    grid-template-columns: 1fr;
+  }
+
+  .kind-nav {
+    justify-self: center;
+  }
+}

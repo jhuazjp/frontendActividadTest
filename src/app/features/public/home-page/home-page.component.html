@@ -1,0 +1,111 @@
+<section class="home-page fade-up">
+  <section class="home-hero">
+    <div class="section home-hero-inner">
+      <div class="hero-intro">
+        <p class="hero-city">NEW YORK - COPENHAGEN</p>
+        <h1>Classic Realism by APZ</h1>
+        <p class="hero-mantra">REMEMBER WHO YOU ARE</p>
+        <a class="story-btn hero-submit" routerLink="/contact">Submit your ideas</a>
+      </div>
+
+      <article class="story-card">
+        <div class="story-image-wrap">
+          <img [src]="'assets/apztattoo/home/work.png' | assetUrl" alt="APZ tattoo process and craft detail" />
+        </div>
+
+        <div class="story-copy">
+          <p class="story-eyebrow">APZ STUDIO</p>
+          <p>
+            For quiet achievers who appreciate museum-level detail, APZ creates connected tattoos that bring together
+            your family stories, symbols, and personal meaning into designs that reflect confidence, self-expression,
+            and strength.
+          </p>
+          <a class="story-btn" routerLink="/catalog">WORK</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="home-content">
+    <div class="section stack-lg">
+      <section class="selected-by">
+        <div class="block-head">
+          <h2>Selected by</h2>
+          <p>Collectors, artists, and public figures who trusted APZ for meaningful, high-detail work.</p>
+        </div>
+
+        <div class="selected-carousel">
+          <div class="selected-track marquee-left">
+            @for (item of selectedByLoopItems; track item.name + '-' + $index) {
+              <article class="selected-card surface-card">
+                <img [src]="item.image | assetUrl" [alt]="item.name" loading="lazy" />
+                <div class="selected-copy">
+                  <h3>{{ item.name }}</h3>
+                  <p>{{ item.role }}</p>
+                </div>
+              </article>
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio-mini">
+        <div class="block-head">
+          <h2>Portfolio</h2>
+          <p>Small preview of recent black and gray realism compositions.</p>
+        </div>
+
+        <div class="media-carousel">
+          <div class="media-track marquee-left-slow">
+            @for (image of portfolioLoopImages; track image + '-' + $index) {
+              <article class="media-item surface-card">
+                <div
+                  class="media-bg"
+                  [style.backgroundImage]="'url(' + (image | assetUrl) + ')'"
+                  role="img"
+                  aria-label="APZ portfolio tattoo sample"
+                ></div>
+              </article>
+            }
+          </div>
+        </div>
+
+        <a class="section-link" routerLink="/catalog">See more portfolio</a>
+      </section>
+
+      <section class="designs-mini">
+        <div class="block-head">
+          <h2>Designs</h2>
+          <p>Available design directions ready to evolve into your custom tattoo concept.</p>
+        </div>
+
+        <div class="media-carousel">
+          <div class="media-track design-track marquee-right">
+            @for (image of designLoopImages; track image + '-' + $index) {
+              <article class="media-item design-media-item surface-card">
+                <div
+                  class="media-bg"
+                  [style.backgroundImage]="'url(' + (image | assetUrl) + ')'"
+                  role="img"
+                  aria-label="APZ available design preview"
+                ></div>
+              </article>
+            }
+          </div>
+        </div>
+
+        <a class="section-link" routerLink="/designs">Go to designs</a>
+      </section>
+
+      <app-ai-tattoo-designer></app-ai-tattoo-designer>
+
+      <app-kind-words
+        [word]="activeKindWord"
+        (previous)="previousKindWord()"
+        (next)="nextKindWord()"
+      ></app-kind-words>
+
+      <app-aftercare-cta></app-aftercare-cta>
+    </div>
+  </section>
+</section>

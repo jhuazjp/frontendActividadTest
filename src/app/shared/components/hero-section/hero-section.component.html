@@ -1,0 +1,20 @@
+<section class="hero">
+  <div class="content">
+    <span class="eyebrow">{{ eyebrow }}</span>
+    <h1>{{ title }}</h1>
+    <p>{{ subtitle }}</p>
+    <div class="actions">
+      @if (primaryLabel) {
+        <app-cta-button [label]="primaryLabel" [href]="primaryHref" />
+      }
+      @if (secondaryLabel) {
+        <app-cta-button
+          [label]="secondaryLabel"
+          [href]="secondaryHref"
+          variant="secondary"
+        />
+      }
+    </div>
+  </div>
+  <img [src]="image | assetUrl" [alt]="title" loading="lazy" decoding="async" />
+</section>
